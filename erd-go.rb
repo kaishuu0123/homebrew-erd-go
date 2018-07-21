@@ -2,6 +2,7 @@ require 'formula'
 
 HOMEBREW_ERD_GO_VERSION='1.4.0'
 class ErdGo < Formula
+  desc "Translates a plain text description of a relational database schema to a graphical entity-relationship diagram.(convert to dot file)"
   version HOMEBREW_ERD_GO_VERSION
   homepage 'https://github.com/kaishuu0123/erd-go'
   url "https://github.com/kaishuu0123/erd-go/releases/download/v#{HOMEBREW_ERD_GO_VERSION}/darwin_amd64_erd-go"
