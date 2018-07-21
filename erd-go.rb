@@ -19,6 +19,7 @@ class ErdGo < Formula
       ENV['GOPATH'] = buildpath
       ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
       ENV.prepend_create_path "PATH", buildpath/"bin"
+      puts buildpath
       system 'go', 'get', 'github.com/pointlander/peg'
       system 'make'
     else
