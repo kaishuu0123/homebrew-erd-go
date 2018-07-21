@@ -1,6 +1,6 @@
 HOMEBREW_ERD_GO_VERSION='1.4.0'
 class ErdGo < Formula
-  desc 'Translates a plain text of a RDB schema to a dot entity-relationship diagram.'
+  desc 'Translates plain text of RDB schema to entity-relationship diagram.'
   homepage 'https://github.com/kaishuu0123/erd-go'
   url "https://github.com/kaishuu0123/erd-go/releases/download/v#{HOMEBREW_ERD_GO_VERSION}/darwin_amd64_erd-go"
 
@@ -24,9 +24,8 @@ class ErdGo < Formula
       dir = buildpath/'src/github.com/kaishuu0123/erd-go'
       dir.install buildpath.children - [buildpath/'.brew_home']
 
-      system 'go', 'get', 'github.com/pointlander/peg'
       cd dir do
-        system 'make'
+        system 'make', 'build_no_peg'
         cp 'erd-go', buildpath
       end
     else
