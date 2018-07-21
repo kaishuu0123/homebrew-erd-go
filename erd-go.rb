@@ -24,7 +24,7 @@ class ErdGo < Formula
       dir = buildpath/'src/github.com/kaishuu0123/erd-go'
       dir.install buildpath.children - [buildpath/'.brew_home']
 
-      (buildpath/"src/github.com/pointlander/peg").install buildpath.children
+      system 'go', 'get', 'github.com/pointlander/peg'
       cd dir do
         system 'make'
         cp 'erd-go', buildpath
