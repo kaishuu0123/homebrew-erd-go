@@ -19,6 +19,8 @@ class ErdGo < Formula
       system 'go', 'get', 'github.com/jteeuwen/go-bindata'
       system 'go', 'get', 'github.com/pointlander/peg'
       system 'make'
+    else
+      system 'mv', 'darwin_amd64_erd-go', 'erd-go'
     end
     bin.install 'erd-go'
   end
