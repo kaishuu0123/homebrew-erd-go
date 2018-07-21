@@ -1,12 +1,10 @@
-require 'formula'
-
 HOMEBREW_ERD_GO_VERSION='1.4.0'
 class ErdGo < Formula
-  desc "Translates a plain text description of a relational database schema to a graphical entity-relationship diagram.(convert to dot file)"
+  desc 'Translates a plain text description of a relational database schema to a graphical entity-relationship diagram.(convert to dot file)'
   version HOMEBREW_ERD_GO_VERSION
   homepage 'https://github.com/kaishuu0123/erd-go'
   url "https://github.com/kaishuu0123/erd-go/releases/download/v#{HOMEBREW_ERD_GO_VERSION}/darwin_amd64_erd-go"
-  sha256 "e253719db302b6aac7cbadd9a29022648170518e0b82edc1abbe5855532911fc"
+  sha256 'e253719db302b6aac7cbadd9a29022648170518e0b82edc1abbe5855532911fc'
 
   head 'https://github.com/kaishuu0123/erd-go.git', :branch => 'master'
 
@@ -21,9 +19,9 @@ class ErdGo < Formula
     if build.head?
       ENV['GOPATH'] = buildpath
       ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
-      ENV.prepend_create_path "PATH", buildpath/"bin"
-      dir = buildpath/"src/github.com/kaishuu0123/erd-go"
-      dir.install buildpath.children - [buildpath/".brew_home"]
+      ENV.prepend_create_path 'PATH', buildpath/'bin'
+      dir = buildpath/'src/github.com/kaishuu0123/erd-go'
+      dir.install buildpath.children - [buildpath/'.brew_home']
 
       system 'go', 'get', 'github.com/pointlander/peg'
       cd dir do
@@ -31,12 +29,12 @@ class ErdGo < Formula
         cp 'erd-go', buildpath
       end
     else
-      system 'mv', 'darwin_amd64_erd-go', 'erd-go'
+      mv 'darwin_amd64_erd-go', 'erd-go'
     end
     bin.install 'erd-go'
   end
 
   test do
-    system "#{bin}/erd-go", "--help"
+    system "#{bin}/erd-go", '--help'
   end
 end
