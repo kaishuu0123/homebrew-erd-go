@@ -25,6 +25,7 @@ class ErdGo < Formula
       system 'go', 'get', 'github.com/pointlander/peg'
       cd dir do
         system 'make'
+        cp 'erd-go', buildpath
       end
     else
       system 'mv', 'darwin_amd64_erd-go', 'erd-go'
