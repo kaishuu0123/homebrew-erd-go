@@ -36,6 +36,6 @@ class ErdGo < Formula
   end
 
   test do
-    system "#{bin}/erd-go", "--help"
+    assert_match 'erd-go', shell_output("#{bin}/erd-go --help", 1)
   end
 end
