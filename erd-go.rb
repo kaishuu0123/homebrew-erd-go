@@ -19,9 +19,13 @@ class ErdGo < Formula
       ENV['GOPATH'] = buildpath
       ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
       ENV.prepend_create_path "PATH", buildpath/"bin"
-      puts buildpath
+      dir = buildpath/"src/github.com/kaishuu0123/erd-go"
+      dir.install buildpath.children - [buildpath/".brew_home"]
+
       system 'go', 'get', 'github.com/pointlander/peg'
-      system 'make'
+      cd dir do
+        system 'make'
+      end
     else
       system 'mv', 'darwin_amd64_erd-go', 'erd-go'
     end
