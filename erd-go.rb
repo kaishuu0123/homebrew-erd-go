@@ -32,6 +32,7 @@ class ErdGo < Formula
       mv "darwin_amd64_erd-go", "erd-go"
     end
     bin.install "erd-go"
+    prefix.install_metafiles
   end
 
   test do
