@@ -17,7 +17,7 @@ class ErdGo < Formula
   def install
     if build.head?
       ENV['GOPATH'] = buildpath
-      ENV.prepend_create_path "PATH", gopath/"bin"
+      ENV.prepend_create_path "PATH", buildpath/"bin"
       system 'go', 'get', 'github.com/pointlander/peg'
       system 'make'
     else
