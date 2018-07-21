@@ -9,17 +9,15 @@ class ErdGo < Formula
 
   if build.head?
     depends_on 'go' => :build
+    depends_on 'glide' => :build
+    depends_on 'peg' => :build
+    depends_on 'go-bindata' => :build
     depends_on 'make' => :build
   end
 
   def install
     if build.head?
       ENV['GOPATH'] = buildpath
-      system 'go', 'get', 'github.com/Masterminds/glide'
-      system 'go', 'get', 'github.com/jteeuwen/go-bindata'
-      system 'go', 'get', 'github.com/pointlander/peg'
-      mkdir_p buildpath/'src/github.com/kaishuu0123'
-      ln_s buildpath, buildpath/'src/github.com/kaishuu0123/erd-go'
       system 'make'
     else
       system 'mv', 'darwin_amd64_erd-go', 'erd-go'
