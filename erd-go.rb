@@ -15,6 +15,9 @@ class ErdGo < Formula
   def install
     if build.head?
       ENV['GOPATH'] = buildpath
+      system 'go', 'get', 'github.com/Masterminds/glide'
+      system 'go', 'get', 'github.com/jteeuwen/go-bindata'
+      system 'go', 'get', 'github.com/pointlander/peg'
       system 'make'
     end
     bin.install 'erd-go'
