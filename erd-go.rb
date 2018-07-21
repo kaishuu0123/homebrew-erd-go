@@ -32,4 +32,8 @@ class ErdGo < Formula
     end
     bin.install 'erd-go'
   end
+
+  test do
+    system "#{bin}/erd-go", "--help"
+  end
 end
