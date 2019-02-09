@@ -1,11 +1,11 @@
-HOMEBREW_ERD_GO_VERSION="1.4.2".freeze
+HOMEBREW_ERD_GO_VERSION="1.4.3".freeze
 class ErdGo < Formula
   desc "Translates plain text of RDB schema to entity-relationship diagram"
   homepage "https://github.com/kaishuu0123/erd-go"
   url "https://github.com/kaishuu0123/erd-go/releases/download/v#{HOMEBREW_ERD_GO_VERSION}/darwin_amd64_erd-go"
 
   version HOMEBREW_ERD_GO_VERSION
-  sha256 "5d5ee4a4ab02416cca85de7619e7c1c23b63925dcfbdfc7faf593cab7853c4cc"
+  sha256 "f974343e19f2022d08b080c933d4f38c2cd0e1204e9c4489b07023b77eb2369e"
 
   head "https://github.com/kaishuu0123/erd-go.git", :branch => "master"
 
